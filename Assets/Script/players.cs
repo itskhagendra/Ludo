@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class players : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class players : MonoBehaviour
     public bool isActive;
     public int dicevalue;
     public int Pos;
+    public TMP_Text Counter;
+    int val;
+    
 
     // Update is called once per frame
     gameManager _gm;
@@ -24,9 +28,19 @@ public class players : MonoBehaviour
     }
     public int RollDice()
     {
+        dicevalue = !isActive? 6 : Random.Range(1, 6);
+        Debug.Log(dicevalue);
+        val = dicevalue;
+        Counter.text = dicevalue.ToString(); ;
         makeMove();
-        dicevalue = Random.Range(1, 6);
+
         return dicevalue;
+    }
+    
+    void Update()
+    {
+        Debug.LogWarning(val);
+        Counter.text = val.ToString(); ;
     }
     public void Spwan()
     {
@@ -42,6 +56,7 @@ public class players : MonoBehaviour
         //CoinsAtHome[1].transform.position = new Vector2(x_pos, y_pos);
         Pos =(int) (Pos + dicevalue)%_gm.PathLength;
         CoinsAtHome[1].transform.position = _gm.path[Pos].transform.position;
+        //Counter = 0;
         return;
     }
 

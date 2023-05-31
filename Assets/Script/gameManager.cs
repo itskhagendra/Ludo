@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class gameManager : MonoBehaviour
     public int turn;
     public TMP_Text Player;
     public List<GameObject> path;
+    public GameObject PB1;
+    public GameObject PB2;
+
 
     [HideInInspector]
     public int PathLength;
@@ -26,18 +30,24 @@ public class gameManager : MonoBehaviour
     }
     void Start()
     {
-        turn = 0;
+        turn = 3;
         PathLength = path.Count;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Player.text = turn % 2 == 0 ? "Player 1" : "Player 2";
-        if (Input.GetMouseButtonDown(0))
-        {
+        var state = (turn % 2 == 0);
+        
+        PB1.SetActive(!state);
+        PB2.SetActive(state);
+        //Player.text = turn % 2 == 0 ? "Player 1" : "Player 2";
+        
+    }
+    public void RollDice()
+    {
             var temp = turn % 2;
-            if (temp == 0)
+            if (temp == 1)
             {
                 players[temp].GetComponent<players>().RollDice();
                 Debug.Log("Calling 0");
@@ -48,10 +58,14 @@ public class gameManager : MonoBehaviour
                 Debug.Log("Calling 1");
             }
             turn++;
-        }
+
     }
     public int GetPosition(GameObject spot)
     {
         return path.IndexOf(spot);
+    }
+    public void MainScene()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
