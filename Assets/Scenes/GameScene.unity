@@ -4739,7 +4739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 430041918}
+      - m_Target: {fileID: 807589042}
         m_TargetAssemblyTypeName: CoinHandler, Assembly-CSharp
         m_MethodName: ClickHandler
         m_Mode: 1
@@ -6221,7 +6221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 430041918}
+      - m_Target: {fileID: 1004084170}
         m_TargetAssemblyTypeName: CoinHandler, Assembly-CSharp
         m_MethodName: ClickHandler
         m_Mode: 1
@@ -9039,7 +9039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 430041918}
+      - m_Target: {fileID: 1559584245}
         m_TargetAssemblyTypeName: CoinHandler, Assembly-CSharp
         m_MethodName: ClickHandler
         m_Mode: 1
