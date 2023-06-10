@@ -9,8 +9,9 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     public static gameManager instance;
     public List<GameObject> players;
-    public GameObject ActivePlayer;
+    //public GameObject ActivePlayer;
     public int turn;
+    public int DiceValue;
     public TMP_Text Player;
     public List<GameObject> path;
     public GameObject PB1;
@@ -46,26 +47,38 @@ public class gameManager : MonoBehaviour
     }
     public void RollDice()
     {
-            var temp = turn % 2;
-            if (temp == 1)
-            {
-                players[temp].GetComponent<players>().RollDice();
-                Debug.Log("Calling 0");
-            }
-            else
-            {
-                players[temp].GetComponent<players>().RollDice();
-                Debug.Log("Calling 1");
-            }
-            turn++;
+        var temp = turn % 2;
+        if (temp == 1)
+        {
+            players[temp].GetComponent<players>().canPlay = true;
+            //players[temp].GetComponent<players>().makeMove(DiceRoll());
+            //Debug.Log("Calling 0");
+        }
+        else
+        {
+            players[temp].GetComponent<players>().canPlay = true;
+            //players[temp].GetComponent<players>().RollDice();
+            //players[temp].GetComponent<players>().makeMove(DiceRoll());
+            //Debug.Log("Calling 1");
+        }
+        turn++;
+        DiceRoll();
+            
 
     }
     public int GetPosition(GameObject spot)
     {
+       
         return path.IndexOf(spot);
     }
     public void MainScene()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public int DiceRoll()
+    {
+        DiceValue = Random.Range(1, 6);
+        return DiceValue;
     }
 }
