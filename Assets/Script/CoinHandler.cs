@@ -25,7 +25,7 @@ public class CoinHandler : MonoBehaviour
         if(_player.canPlay)
         {
             Debug.Log("Make a move");
-            
+            //_player.Value.text = _gm.DiceValue.ToString();
             makeMove();
         }
     }
@@ -61,6 +61,7 @@ public class CoinHandler : MonoBehaviour
             transform.position = _gm.path[pos].transform.position;
             moveToHome(split_dice);
         }
+        _player.canPlay = false;
     }
 
     public void moveToHome(int steps)
