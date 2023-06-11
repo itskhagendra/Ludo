@@ -10,4 +10,10 @@ public class players : MonoBehaviour
     public bool reachedHome;
     public List<GameObject> HomePath;
     public bool canPlay;
+    public TMP_Text Value;
+
+    public void SetValue(string vlaue)
+    {
+        Value.text = vlaue;
+    }
 }

@@ -47,22 +47,25 @@ public class gameManager : MonoBehaviour
     }
     public void RollDice()
     {
+        DiceRoll();
         var temp = turn % 2;
         if (temp == 1)
         {
             players[temp].GetComponent<players>().canPlay = true;
+            players[temp].GetComponent<players>().SetValue(DiceValue.ToString());
             //players[temp].GetComponent<players>().makeMove(DiceRoll());
             //Debug.Log("Calling 0");
         }
         else
         {
             players[temp].GetComponent<players>().canPlay = true;
+            players[temp].GetComponent<players>().SetValue(DiceValue.ToString());
+
             //players[temp].GetComponent<players>().RollDice();
             //players[temp].GetComponent<players>().makeMove(DiceRoll());
             //Debug.Log("Calling 1");
         }
         turn++;
-        DiceRoll();
             
 
     }
